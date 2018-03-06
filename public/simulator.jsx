@@ -138,7 +138,7 @@ class Simulator extends React.Component {
         <div className="contain">
           <CnxStatus></CnxStatus>
           <div>
-            <h2>Pampa Warro Lights</h2>
+            <h2>Mate Lights - Pampa Warro Love</h2>
           </div>
           <DevicesStatus></DevicesStatus>
           <div className="simulator">

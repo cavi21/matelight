@@ -155,7 +155,7 @@ class Simulator extends React.Component {
             React.createElement(
               'h2',
               null,
-              'Pampa Warro Lights'
+              'Mate Lights - Pampa Warro Love'
             )
           ),
           React.createElement(DevicesStatus, null),

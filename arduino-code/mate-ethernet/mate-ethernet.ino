@@ -1,22 +1,22 @@
-
-void setup() {
-  Serial.begin(250000);
-  Serial.println("Serial connected");
-  setupLeds(300,6,7); 
-
-  // COM17 - 6666 6
-  // COM16 - 5555 5
- 
-  unsigned int port = 6666;
-  
-  setupUDPConnection(port, 6);
-}
-
 bool connected = false;
-int disconnectedCounter = 0;
 bool withIp = false;
 
-char ledsBuffer[2*3*150+2];  //buffer to hold incoming packet,
+char ledsBuffer[3*3*150+2]; //buffer to hold incoming packet,
+
+void setup() {
+  // setup ethernet communication using DHCP 
+  delay(750);//<--important for W5100 module 
+  
+  Serial.begin(9600);
+  Serial.println(F("Serial connected"));
+  setupLeds(450); 
+
+//   COM16 - 5555 5
+//   COM17 - 6666 6
+  
+  setupUDPConnection(5555, 50);
+}
+
 unsigned long lastPerfStatus = millis();
 unsigned long lastFrame = millis();
 int frameCount = 0;
@@ -36,7 +36,6 @@ void loop() {
     if(checkForNewUDPMsg(ledsBuffer)) {
       writeLedFrame(ledsBuffer, 1);
       connected = true;
-      disconnectedCounter = 0;
       frameCount++;
       lastFrame = nowMs;
     } else {

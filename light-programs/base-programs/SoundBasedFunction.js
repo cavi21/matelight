@@ -9,7 +9,7 @@ let realSound = 0;
 let fakingSoundInterval = 0;
 let t = 0;
 function startFakeSound(){
-  console.log("Faking sound.")
+  // console.log("Faking sound.")
   fakingSoundInterval = setInterval(() => {
     // Magic formula to simulate song audio volume change?
     realSound = Math.min(1, Math.max(0, Math.pow(Math.random(), 2)*0.2+realSound*0.7+Math.sin(t*7)/10+Math.sin(t/3)/10));

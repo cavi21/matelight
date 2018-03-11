@@ -73,7 +73,7 @@ exports.createRemoteControl = function(lightProgram, deviceMultiplexer) {
       }
     }
 
-    console.log("Remote control connnected")
+    // console.log("Remote control connected")
     lightProgram.onLights(lightsCbk)
 
     // socket.on('reconnect', function () {

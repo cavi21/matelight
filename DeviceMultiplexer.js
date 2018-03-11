@@ -34,12 +34,10 @@ function logDevicesStatus(devices) {
   // devices.forEach(d => {
   //   msgs.push(`${d.deviceId} - ${d.deviceState} ${d.deviceState === d.STATE_RUNNING ? d.lastFps : ''}`[colors[d.deviceState] || 'gray'])
   // })
-  term.saveCursor();
-  term.eraseDisplayBelow();
-  term.nextLine(2)
-  term(table.toString())
-  term.restoreCursor();
-  term.column(0)
+
+  // term.eraseDisplay();
+  term.previousLine(6);
+  term(table.toString());
 }
 
 module.exports = class DeviceMultiplexer {

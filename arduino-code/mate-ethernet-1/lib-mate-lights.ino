@@ -8,16 +8,14 @@ int TOTAL_NUM_LEDS = STRIP_NUM_LEDS;
 CRGB leds[STRIP_NUM_LEDS];
 CRGB leds2[STRIP_NUM_LEDS];
 CRGB leds3[STRIP_NUM_LEDS];
-//CRGB leds4[STRIP_NUM_LEDS];
 
 void setupLeds(int totalNumLeds) {
   TOTAL_NUM_LEDS = totalNumLeds;
-  
+
   // Uncomment/edit one of the following lines for your leds arrangement.
   FastLED.addLeds<WS2812B, 5, GRB>(leds, STRIP_NUM_LEDS);
   FastLED.addLeds<WS2812B, 6, GRB>(leds2, STRIP_NUM_LEDS);
   FastLED.addLeds<WS2812B, 7, GRB>(leds3, STRIP_NUM_LEDS);
-//  FastLED.addLeds<WS2812B, 8, GRB>(leds4, STRIP_NUM_LEDS);
 
 //  FastLED.setBrightness( BRIGHTNESS );
   FastLED.setMaxPowerInVoltsAndMilliamps(5, 1000);
@@ -26,7 +24,7 @@ void setupLeds(int totalNumLeds) {
     writeLeds(i,0,0,0);
   }
 
-  for(int i=0;i<2;i++){
+  for(int i=0;i<3;i++){
     writeLeds(0+i*STRIP_NUM_LEDS, 0, 0, 0); // Black
     writeLeds(1+i*STRIP_NUM_LEDS, 255, 0, 0); // Red
     writeLeds(2+i*STRIP_NUM_LEDS, 0, 255, 0); // Green
@@ -52,16 +50,11 @@ void writeLeds(int pos, byte r, byte g, byte  b) {
     leds2[pos-150].green = g;
     leds2[pos-150].blue = b;
     leds2[pos-150].maximizeBrightness();
-  } else if(pos < 450) {
+  } else {
     leds3[pos-300].red = r;
     leds3[pos-300].green = g;
     leds3[pos-300].blue = b;
     leds3[pos-300].maximizeBrightness();
-//  } else {
-//    leds4[pos-450].red = r;
-//    leds4[pos-450].green = g;
-//    leds4[pos-450].blue = b;
-//    leds4[pos-150].maximizeBrightness();
   }
 }
 
